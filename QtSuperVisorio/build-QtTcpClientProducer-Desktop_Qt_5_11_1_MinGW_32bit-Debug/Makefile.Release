@@ -488,6 +488,46 @@ release/mainwindow.o: ../QtTcpClientProducer/mainwindow.cpp ../QtTcpClientProduc
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qtimer.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qbasictimer.h \
 		ui_mainwindow.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLCDNumber \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlcdnumber.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextoption.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMenuBar \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmenubar.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmenu.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qaction.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QSlider \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QStatusBar \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstatusbar.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTextBrowser \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextbrowser.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextdocument.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QToolBar \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtoolbar.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDateTime \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qdatetime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\QtTcpClientProducer\mainwindow.cpp

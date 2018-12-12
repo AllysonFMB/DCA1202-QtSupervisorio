@@ -1,0 +1,90 @@
+#include "plotter.h"
+#include <QPainter>
+#include <QPen>
+#include <QBrush>
+#include <QDebug>
+
+Plotter::Plotter(QWidget *parent) :
+    QWidget(parent)
+{
+
+}
+
+void Plotter::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    QBrush brush;
+    QPen pen;
+
+    int indice_menor, indice_maior;
+    float y_posterior, y_anterior;
+
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    brush.setColor(QColor(100, 100, 100));
+    brush.setStyle(Qt::SolidPattern);
+
+    pen.setColor(QColor(255, 255, 255));
+    pen.setWidth(1);
+
+    painter.setBrush(brush);
+    painter.setPen(pen);
+
+    painter.drawRect(0,0,width(),height());
+
+    //parte visual do plotter em que geramos o quadriculado
+    for(int i=width()/20; i<width(); i=i+width()/20){
+        painter.drawLine(i, 0, i, height());
+    }
+
+    for(int i=height()/20; i<height(); i=i+height()/20){
+        painter.drawLine(0, i, width(), i);
+    }
+
+    indice_maior = pMax();
+    indice_menor = pMin();
+    bool ok;
+
+    pen.setColor(QColor(255, 0, 0));
+    pen.setWidth(1);
+    painter.setPen(pen);
+
+    for(int i = 1; i<pontos.length()-1; i ++){
+        y_posterior = ((float)pontos.at(i)-pontos.at(indice_menor)) / (pontos.at(indice_maior)-pontos.at(indice_menor));
+        y_anterior = ((float)pontos.at(i-1)-pontos.at(indice_menor)) / (pontos.at(indice_maior)-pontos.at(indice_menor));
+        qDebug() <<"y_posterior = " <<y_posterior<<" e y_anterior = "<<y_anterior;
+        painter.drawLine(width()/10*(i-1), y_anterior*height(), width()/10*(i), y_posterior*height());
+    }
+
+}
+
+void Plotter::newPontos(QList<int>novosP)
+{
+    pontos = novosP ;
+    repaint();
+
+}
+
+int Plotter::pMax()
+{
+    int index = 0;
+     for(int i = 1; i<pontos.length()-1; i++){
+         if(pontos.at(i) > pontos.at(i-1)){
+             index = i;
+         }
+     }
+     return index;
+
+}
+
+int Plotter::pMin()
+{
+    int index = 0;
+       for(int i = 1; i<pontos.length()-1; i++){
+           if(pontos.at(i) < pontos.at(i-1)){
+               index = i;
+           }
+       }
+       return index;
+}
+

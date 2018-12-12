@@ -85,6 +85,8 @@ private:
  * @brief limiteMaximo variável que seta o valor maximo.
  */
   int limiteMaximo;
+
+  QString dado;
 };
 
 #endif // MAINWINDOW_H

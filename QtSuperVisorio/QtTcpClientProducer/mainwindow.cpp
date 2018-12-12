@@ -126,27 +126,23 @@ void MainWindow::setMinimo(){
 }
 
 void MainWindow::putData(){
-  QDateTime datetime;
-  QString str;
-  qint64 msecdate;
+    QDateTime datetime;
+    QString str;
+    qint64 msecdate;
 
-  if(limiteMaximo < limiteMinimo){
-      limiteMaximo = limiteMinimo;
-      limiteMinimo = limiteMaximo;
-      qDebug() << "Previsao de erro, limites trocados" ;
+    if(socket->state() == QAbstractSocket::ConnectedState){
+
+      msecdate = QDateTime::currentDateTime().toMSecsSinceEpoch();
+      str = "set "+ QString::number(msecdate) + " " + dado +"\r\n";
+      ui->textBrowser_Dados->append(str);
+
+        qDebug() << str;
+        qDebug() << socket->write(str.toStdString().c_str()) << " bytes written";
+        if(socket->waitForBytesWritten(3000)){
+          qDebug() << "wrote";
+        }
+    }
   }
-  if(socket->state() == QAbstractSocket::ConnectedState){
-
-    msecdate = QDateTime::currentDateTime().toMSecsSinceEpoch();
-    str = "set "+ QString::number(msecdate) + " " + QString::number( (qrand()%(limiteMaximo - limiteMinimo + 1)) + limiteMinimo )+"\r\n";
-
-      qDebug() << str;
-      qDebug() << socket->write(str.toStdString().c_str()) << " bytes written";
-      if(socket->waitForBytesWritten(3000)){
-        qDebug() << "wrote";
-      }
-  }
-}
 MainWindow::~MainWindow(){
   delete socket;
     delete ui;
@@ -154,9 +150,9 @@ MainWindow::~MainWindow(){
 
 void MainWindow::timerEvent(QTimerEvent *event)
 {
-    QString msg = QString::number((qrand()%(limiteMaximo - limiteMinimo + 1)) + limiteMinimo);
-    ui->textBrowser_Dados->append(msg);
-    qDebug() << msg ;
+    dado = QString::number((qrand()%(limiteMaximo - limiteMinimo + 1)) + limiteMinimo);
+    putData();
+    qDebug() << dado ;
 }
 
 

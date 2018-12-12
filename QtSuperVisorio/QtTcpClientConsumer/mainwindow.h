@@ -1,9 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include <QMainWindow>
 #include <QTcpSocket>
 #include <QDebug>
+#include <QVector>
+#include <QListWidgetItem>
 
 namespace Ui {
 class MainWindow;
@@ -16,13 +17,56 @@ class MainWindow : public QMainWindow
 public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
+
+public:
+    void timerEvent(QTimerEvent *event);
   
   void tcpConnect();
 public slots:
+  /**
+    * @brief tcpConnect Método responsável por realizar a conexão entre o Cliente Produtor e o Cliente Servidor.
+    */
+  void Connecttcp();
+  /**
+    * @brief Disconnecttcp Método responsável por finalizar conexão entre o Cliente Produtor e o Cliente Servidor.
+    */
+  void Disconnecttcp();
+  /**
+    * @brief setTiming Método responsável por setar  valor do temporizador.
+    */
+  void setTiming();
+  /**
+    * @brief TempoON Método responsável por iniciar o temporizador.
+    */
+  void TempON();
+  /**
+    * @brief TempoOFF Método responsável por finilizar o temporizador.
+    */
+  void TempOFF();
+
+  void Uptade();
+
+  void IPList();
   void getData();
 private:
   Ui::MainWindow *ui;
   QTcpSocket *socket;
+  QListWidgetItem atual_Ip;
+  QList<int> dados;
+
+  /**
+ * @brief tempo variável de tempo.
+ */
+  int tempo = 1000;
+  /**
+ * @brief temporizador variável do temporizador.
+ */
+  int temporizador;
+  /**
+ * @brief flagTemporizador variável bool da flag do temporizador.
+ */
+  bool flagTemporizador;
+
 };
 
 #endif // MAINWINDOW_H
